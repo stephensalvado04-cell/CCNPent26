@@ -82,6 +82,46 @@ int lo 6
  ipv6 ospf 6 area 0
  do sh ipv6 ospf neig
 
+ENABLE IPV6 if not configured on SWITCH then reload after
+
+conf t
+sdm prefer dual-ipv4-and-ipv6 routing
+wr
+end
+
+reload
+
+@After rebooting
+enable
+configure terminal
+
+ipv6 unicast-routing
+
+vlan 20
+ name VOICE
+
+ipv6 dhcp pool VOICE-DHCP
+ dns-server 2001:4860:4860::8888
+ domain-name voice.lab
+
+interface vlan 20
+ description VOICE_NETWORK
+ ipv6 address 2001:db8:20:1::1/64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server VOICE-DHCP
+ no shutdown
+
+interface fastEthernet0/5
+ description Cisco_8851_Phone
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+
+end
+
+
+write memory
+
 
 TASK2: CONFIGURING IPV6 ON CISCO DEVICES:
 method1: Ipv6 autoconfig/autoBwisit
