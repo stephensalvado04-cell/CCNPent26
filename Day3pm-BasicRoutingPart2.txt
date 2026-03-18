@@ -1666,7 +1666,7 @@ O IA     10.1.1.4/30 [110/20] via 10.1.1.9, 00:00:32, Ethernet1/2
       11.0.0.0/32 is subnetted, 1 subnets
 O E1     11.11.11.11 [110/50] via 10.1.1.9, 00:00:22, Ethernet1/2
 
-MAKE AREA 34 A STUB AREA:
+MAKE AREA 34 A STUB AREA: dulo ka
  
 R3:
 config t
@@ -1695,7 +1695,7 @@ What was gone?
 Hence, Stub = no Oe1, or Oe2 its been replaced by O*IA
 but try to ping 1.1.1.1
 
-MAKE AREA 34 A TOTALLY STUBBY AREA:
+MAKE AREA 34 A TOTALLY STUBBY AREA:dulong dulo
 
 R3: totally stubby.
 config t
@@ -1728,7 +1728,7 @@ config t
   area 34 nssa
 ! 
  
-R4: NSSA: not so stubby area.
+R4: NSSA: not so stubby area. dulong dulo pero hindi pala.
 config t
  router ospf 1
   no area 34 stub
@@ -1756,7 +1756,7 @@ O E1     11.11.11.11 [110/40] via 10.1.1.5, 00:00:32, Ethernet1/1
       192.168.1.0/27 is subnetted, 1 subnets
 O N2     192.168.1.128 [110/20] via 10.1.1.10, 00:00:04, Ethernet1/2
 
-TASK3: HAVE A O*N2 GET INTO NSSA AREA 10.
+TASK3: HAVE A O*N2 GET INTO NSSA AREA 10. 
 
       1.0.0.0/32 is subnetted, 1 subnets
 O IA     1.1.1.1 [110/31] via 10.1.1.9, 00:00:47, Ethernet1/2
